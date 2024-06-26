@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: star-facts-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: star-facts
+  template:
+    metadata:
+      labels:
+        app: star-facts
+    spec:
+      containers:
+      - name: star-facts
+        image: <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/star-facts-service:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: star-facts-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: star-facts
