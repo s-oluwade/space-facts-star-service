@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: star-facts
-        image: <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/star-facts-service:latest
+        image: 533266979424.dkr.ecr.us-east-1.amazonaws.com/star-facts-service:latest
         ports:
         - containerPort: 5000
 ---
