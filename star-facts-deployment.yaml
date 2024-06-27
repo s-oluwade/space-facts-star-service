@@ -15,6 +15,7 @@ spec:
       containers:
       - name: star-facts
         image: 533266979424.dkr.ecr.us-east-1.amazonaws.com/star-facts-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
 ---
